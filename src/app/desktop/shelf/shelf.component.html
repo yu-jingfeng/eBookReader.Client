@@ -1,3 +1,28 @@
+<mat-accordion multi="true">
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Personal data
+            </mat-panel-title>
+            <mat-panel-description>
+                Type your name and age
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <app-book-item *ngFor="let book of bookItems" [book]="book"></app-book-item>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Self aware panel
+            </mat-panel-title>
+            <mat-panel-description>
+                Currently I am {{panelOpenState ? 'open' : 'closed'}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>I'm visible because I am open</p>
+    </mat-expansion-panel>
+</mat-accordion>
+
 <p>beginbeginbeginbeginbeginbeginbeginbegin</p>
 <p>shelf works!</p>
 <p>shelf works!</p>

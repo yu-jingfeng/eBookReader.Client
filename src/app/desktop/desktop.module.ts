@@ -7,6 +7,7 @@ import { BookshelfComponent } from './bookshelf/bookshelf.component';
 import { DesktopRoutingModule } from './desktop-routing.module';
 import { CategoryMenuComponent } from './category-menu/category-menu.component';
 import { CategoryItemComponent } from './category-item/category-item.component';
+import { BookItemComponent } from './book-item/book-item.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { CategoryItemComponent } from './category-item/category-item.component';
     ShelfComponent,
     BookshelfComponent,
     CategoryMenuComponent,
-    CategoryItemComponent
+    CategoryItemComponent,
+    BookItemComponent
   ],
   imports: [
     DesktopRoutingModule,

@@ -43,3 +43,7 @@ mat-sidenav.mat-sidenav {
     background-color: #fafafa;
     box-shadow: 6px 0 6px rgba(0,0,0,.1);
 }
+
+mat-sidenav-content.mat-sidenav-content {
+    padding: 20px 3rem 1rem;
+}
