@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button class="hamburger" mat-button title="Docs menu" (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>E-Book Reader</span>
+  </mat-toolbar-row>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" [opened]="true">
+    <app-category-menu [nodes]="categoryNodes"></app-category-menu>
+    <p>sdfsdfdsf</p>
+    <p>sdfsdfdsf</p>
+    <p>sdfsdfdsf</p>
+    <p>sdfsdfdsf</p>
+    <p>sdfsdfdsf</p>
+    <p>sdfsdfdsf</p>
+    <p>sdfsdfdsf</p>
+    <p>sdfsdfdsf</p>
+    <p>sdfsdfdsf</p>
+    <p>sdfsdfdsf</p>
+    <p>sdfsdfdsf</p>
+    <p>sdfsdfdsf</p>
+    <p>sdfsdfdsf</p>
+    <p>sdfsdfdsf</p>
+    <p>sdfsdfdsf</p>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-shelf></app-shelf>
+  </mat-sidenav-content>
+</mat-sidenav-container>

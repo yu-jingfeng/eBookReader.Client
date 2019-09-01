@@ -1,0 +1,45 @@
+:host {
+    position: fixed;
+    top: 64px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+app-bookshelf {
+    display: block;
+}
+
+mat-toolbar.mat-toolbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+}
+
+.hamburger.mat-button {
+    height: 100%;
+    width: 80px;
+    margin: 0;
+    padding: 0;
+}
+
+mat-sidenav-container.mat-sidenav-container {
+    height: 100%;
+    max-width: 100%;
+    margin: 0;
+    -webkit-transform: none;
+    transform: none;
+}
+
+mat-sidenav.mat-sidenav {
+    position: fixed;
+    top: 64px;
+    bottom: 0;
+    left: 0;
+    padding: 0;
+    min-width: 260px;
+    background-color: #fafafa;
+    box-shadow: 6px 0 6px rgba(0,0,0,.1);
+}

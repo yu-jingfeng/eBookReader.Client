@@ -1,0 +1,21 @@
+<!-- 没有子分类 -->
+<div *ngIf="!node.children">
+  <a [ngClass]="classes" class="vertical-menu-item heading">
+    {{node.name}}
+    <mat-icon class="rotating-icon" svgIcon="keyboard_arrow_right"></mat-icon>
+  </a>
+</div>
+
+<!-- 包含子分类 -->
+<div *ngIf="node.children">
+  <a [ngClass]="classes" (click)="headerClicked()" class="vertical-menu-item heading">
+    {{node.name}}
+    <mat-icon class="rotating-icon">keyboard_arrow_right</mat-icon>
+  </a>
+
+  <div class="heading-children" [ngClass]="classes">
+    <app-category-item *ngFor="let node of nodeChildren" [level]="level + 1" [isParentExpanded]="isExpanded"
+      [node]="node" [selectedNodes]="selectedNodes">
+    </app-category-item>
+  </div>
+</div>
