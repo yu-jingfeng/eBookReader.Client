@@ -23,7 +23,7 @@
 
 .vertical-menu-item .mat-icon {
     position: absolute;
-    top: 0;
+    top: 7px;
     right: 0;
     margin: 4px;
 }

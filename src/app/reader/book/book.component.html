@@ -1,3 +1,47 @@
-<p>
-  book works!
-</p>
+<mat-toolbar class="top-bar-container" [ngClass]="{'slide-down': !isReading}" color="">
+  <div class="top-bar-left">
+    <h1 class="title">Neat Reader</h1>
+  </div>
+  <div class="top-bar-center">
+    <div class="nav-list">
+      <button mat-button class="nav-btn">
+        <mat-icon>library_books</mat-icon>
+        <span class="icon-text hover">书架</span>
+      </button>
+    </div>
+    <span class="center-line margin-between"></span>
+    <div class="nav-list">
+      <button mat-button class="nav-btn" (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+        <span class="icon-text hover">目录</span>
+      </button>
+      <button mat-button class="nav-btn">
+        <mat-icon>event_note</mat-icon>
+        <span class="icon-text hover">笔记</span>
+      </button>
+    </div>
+    <span class="center-line margin-between"></span>
+    <div class="nav-list">
+      <span class="color-text">配色</span>
+    </div>
+    <span class="center-line"></span>
+    <div class="nav-list">
+      <button mat-button class="nav-btn">
+        <mat-icon>settings_applications</mat-icon>
+        <span class="icon-text hover">更多设置</span>
+      </button>
+    </div>
+  </div>
+  <div class="top-bar-right">
+    <span class="color-text">配色</span>
+  </div>
+</mat-toolbar>
+
+<mat-sidenav-container class="book-render">
+  <mat-sidenav class="catalog-sidenav" #sidenav mode="side" [opened]="true">
+    <app-book-catalog class="innerbox"></app-book-catalog>
+  </mat-sidenav>
+  <mat-sidenav-content class="innerbox innerbox-dispale">
+    <app-book-content (contentClick)="onContentClick()"></app-book-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

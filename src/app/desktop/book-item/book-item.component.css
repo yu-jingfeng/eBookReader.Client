@@ -1,7 +1,9 @@
 :host {
-    width: 20%;
+    width: 200px;
     display: inline-block;
     margin-bottom: 25px;
+    vertical-align: top;
+    position: relative;
 }
 
 .book-read-time {
@@ -21,10 +23,16 @@
 }
 
 .book-message {
--webkit-transition: all .5s;
+    -webkit-transition: all .5s;
     transition: all .5s;
     box-shadow: 0 1px 6px rgba(0,0,0,.12), 0 1px 4px rgba(0,0,0,.12);
+    width: 100%;
+    height: 100%;
 
+}
+
+.book-message:hover {
+    box-shadow: 0 1px 12px rgba(0,0,0,.2), 0 1px 10px rgba(0,0,0,.2);
 }
 
 .book-cover {

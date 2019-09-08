@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import { CategoryNode } from '../domain/category.model';
+import { CategoryNode } from 'src/app/domain/category.model';
 
 @Component({
   selector: 'app-category-item',

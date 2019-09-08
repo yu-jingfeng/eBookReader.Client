@@ -1,0 +1,17 @@
+:host {
+    display: block;
+    margin: 50px 20px;
+}
+
+.book-content {
+    box-sizing: border-box;
+    position: relative;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    margin: 0 auto;
+    padding: 48px;
+    background-color: #fff;
+    min-height: 100vh;
+    z-index: 99;
+    max-width: 860px;
+}

@@ -1,15 +1,14 @@
 <!-- 没有子分类 -->
 <div *ngIf="!node.children">
-  <a [ngClass]="classes" class="vertical-menu-item heading">
-    {{node.name}}
-    <mat-icon class="rotating-icon" svgIcon="keyboard_arrow_right"></mat-icon>
+  <a mat-button [ngClass]="classes" class="vertical-menu-item heading">
+    <span>{{node.name}}</span>
   </a>
 </div>
 
 <!-- 包含子分类 -->
 <div *ngIf="node.children">
-  <a [ngClass]="classes" (click)="headerClicked()" class="vertical-menu-item heading">
-    {{node.name}}
+  <a mat-button [ngClass]="classes" (click)="headerClicked()" class="vertical-menu-item heading">
+    <span>{{node.name}}</span>
     <mat-icon class="rotating-icon">keyboard_arrow_right</mat-icon>
   </a>
 

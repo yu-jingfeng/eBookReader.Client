@@ -1,0 +1,14 @@
+<mat-accordion multi="true">
+  <mat-expansion-panel expanded="true" *ngFor="let node of bookNodes">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{node.categoryName}}
+      </mat-panel-title>
+      <mat-panel-description>
+        Currently I am {{panelOpenState ? 'open' : 'closed'}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <app-book-item *ngFor="let book of node.books" [book]="book"></app-book-item>
+    <app-book-panel [bookNodes]="node.children"></app-book-panel>
+  </mat-expansion-panel>
+</mat-accordion>

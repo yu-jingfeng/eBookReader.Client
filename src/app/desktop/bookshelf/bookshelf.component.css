@@ -46,4 +46,5 @@ mat-sidenav.mat-sidenav {
 
 mat-sidenav-content.mat-sidenav-content {
     padding: 20px 3rem 1rem;
+    box-sizing: border-box;
 }

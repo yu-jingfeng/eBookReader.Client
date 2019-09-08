@@ -6,7 +6,9 @@ import {
   MatIconModule,
   MatButtonModule,
   MatExpansionModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatCardModule,
+  MatTreeModule
 } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
@@ -21,6 +23,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     MatExpansionModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    MatCardModule,
+    MatTreeModule,
 
   ],
   exports: [
@@ -32,6 +36,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     MatExpansionModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    MatCardModule,
+    MatTreeModule,
   ]
 })
 export class SharedModule { }

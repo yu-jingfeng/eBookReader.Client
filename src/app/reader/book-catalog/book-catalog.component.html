@@ -1,0 +1,20 @@
+<mat-tree class="book-catalog" [dataSource]="dataSource" [treeControl]="treeControl">
+    <!-- This is the tree node template for leaf nodes -->
+    <mat-tree-node class="catalog-node" *matTreeNodeDef="let node" matTreeNodePadding matTreeNodePaddingIndent="20">
+        <!-- use a disabled button to provide padding for tree leaf -->
+        <button mat-icon-button disabled></button>
+        <a mat-button (click)="treeControl.expand(node)" class="catalog-item">
+            <span>{{node.name}}</span>
+        </a>
+    </mat-tree-node>
+    <!-- This is the tree node template for expandable nodes -->
+    <mat-tree-node class="catalog-node" *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding
+        matTreeNodePaddingIndent="20">
+        <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'toggle ' + node.title">
+            <mat-icon class="mat-icon-rtl-mirror">
+                {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+            </mat-icon>
+        </button>
+        <a mat-button (click)="treeControl.expand(node)" class="catalog-item">{{node.name}}</a>
+    </mat-tree-node>
+</mat-tree>

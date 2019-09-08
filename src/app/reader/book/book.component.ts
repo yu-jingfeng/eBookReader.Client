@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookComponent implements OnInit {
 
+  isReading: boolean = false;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  onContentClick() {
+    this.isReading = !this.isReading;
+    console.log(this.isReading);
+
+  }
 }
