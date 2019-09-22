@@ -4,7 +4,7 @@ import { BookComponent } from './book/book.component';
 
 
 const routes: Routes = [
-    { path: 'reader', component: BookComponent },
+    { path: 'reader/:hash', component: BookComponent },
 ];
 
 @NgModule({

@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   { path: '', redirectTo: '/desktop', pathMatch: 'full' },
   { path: 'desktop', redirectTo: '/desktop', pathMatch: 'full' },
-  { path: 'reader', redirectTo: '/reader', pathMatch: 'full' },
+  { path: 'reader/:hash', redirectTo: '/reader/:hash', pathMatch: 'full' },
 ];
 
 @NgModule({

@@ -3,8 +3,8 @@
     <mat-tree-node class="catalog-node" *matTreeNodeDef="let node" matTreeNodePadding matTreeNodePaddingIndent="20">
         <!-- use a disabled button to provide padding for tree leaf -->
         <button mat-icon-button disabled></button>
-        <a mat-button (click)="treeControl.expand(node)" class="catalog-item">
-            <span>{{node.name}}</span>
+        <a mat-button title="{{node.title}}" (click)="itemClick(node)" class="catalog-item">
+            {{node.title}}
         </a>
     </mat-tree-node>
     <!-- This is the tree node template for expandable nodes -->
@@ -15,6 +15,6 @@
                 {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
             </mat-icon>
         </button>
-        <a mat-button (click)="treeControl.expand(node)" class="catalog-item">{{node.name}}</a>
+        <a mat-button title="{{node.title}}" (click)="itemClick(node)" class="catalog-item">{{node.title}}</a>
     </mat-tree-node>
 </mat-tree>

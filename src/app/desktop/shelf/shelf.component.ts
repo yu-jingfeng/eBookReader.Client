@@ -16,6 +16,7 @@ export class ShelfComponent implements OnInit {
         {
           id: 1,
           name: "深入理解C#",
+          hash: 'f3805eca632afd73be4e5fd6d9452784',
           cover: "https://urania-static-test.oss-cn-beijing.aliyuncs.com/test/Image00077.jpg"
         },
       ],
@@ -112,6 +113,7 @@ export class ShelfComponent implements OnInit {
   bookItems: BookItem[] = [
     {
       id: 1,
+      hash: 'f3805eca632afd73be4e5fd6d9452784',
       name: "Go Web编程11",
       cover: "https://urania-static-test.oss-cn-beijing.aliyuncs.com/test/Image00077.jpg"
     },

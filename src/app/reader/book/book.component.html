@@ -39,9 +39,9 @@
 
 <mat-sidenav-container class="book-render">
   <mat-sidenav class="catalog-sidenav" #sidenav mode="side" [opened]="true">
-    <app-book-catalog class="innerbox"></app-book-catalog>
+    <app-book-catalog class="innerbox" [catalog]="catalog" (catalogJump)="catalogJump($event)"></app-book-catalog>
   </mat-sidenav>
   <mat-sidenav-content class="innerbox innerbox-dispale">
-    <app-book-content (contentClick)="onContentClick()"></app-book-content>
+    <app-book-content [content]="content" (contentClick)="contentClick()"></app-book-content>
   </mat-sidenav-content>
 </mat-sidenav-container>

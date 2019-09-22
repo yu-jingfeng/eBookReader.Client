@@ -1,5 +1,5 @@
 export interface CatalogNode {
     title: string,
-    url: string
+    src: string
     children?: CatalogNode[];
 }
