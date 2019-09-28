@@ -7,6 +7,9 @@ import { CategoryMenuComponent } from './category-menu/category-menu.component';
 import { CategoryItemComponent } from './category-item/category-item.component';
 import { BookItemComponent } from './book-item/book-item.component';
 import { BookPanelComponent } from './book-panel/book-panel.component';
+import { CategoryService } from './services/category.service';
+import { BookService } from './services/book.service';
+import { UtilService } from './services/util.service';
 
 
 @NgModule({
@@ -21,6 +24,11 @@ import { BookPanelComponent } from './book-panel/book-panel.component';
   imports: [
     DesktopRoutingModule,
     SharedModule,
+  ],
+  providers: [
+    CategoryService,
+    BookService,
+    UtilService,
   ]
 })
 export class DesktopModule { }

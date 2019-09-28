@@ -8,6 +8,7 @@ import { BookItem } from 'src/app/domain/book-item.model';
 })
 export class BookItemComponent implements OnInit {
 
+  host = "http://localhost:5000"
   @Input() book: BookItem;
   constructor() { }
 

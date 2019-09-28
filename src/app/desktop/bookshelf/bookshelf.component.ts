@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryNode } from 'src/app/domain/category.model';
+import { CategoryService } from '../services/category.service';
+import { BookService } from '../services/book.service';
 
 @Component({
   selector: 'app-bookshelf',
@@ -8,40 +10,19 @@ import { CategoryNode } from 'src/app/domain/category.model';
 })
 export class BookshelfComponent implements OnInit {
 
-  categoryNodes: CategoryNode[] = [
-    {
-      name: "技术书籍",
-      children: [
-        {
-          name: "C#/.NET"
-        },
-        {
-          name: "JavaScript"
-        },
-        {
-          name: "Golang"
-        },
-      ]
-    },
-    {
-      name: "非技术书籍",
-      children: [
-        {
-          name: "哲学"
-        },
-        {
-          name: "小说"
-        },
-        {
-          name: "心理学"
-        },
-      ]
-    },
-  ]
+  categoryNodes: CategoryNode[];
 
-  constructor() { }
+  constructor(
+    private categoryService: CategoryService,
+    private bookService: BookService) { }
 
   ngOnInit() {
+    this.categoryService.getCategorys()
+      .subscribe(cate => {
+        this.categoryNodes = cate;
+      });
+
+    this.bookService.updateSource();
   }
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CatalogNode } from 'src/app/domain/catalog-node.model';
 import { ActivatedRoute } from '@angular/router';
-import { BookService } from '../book.service';
+import { BookReaderService } from '../book-reader.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { window } from 'rxjs/operators';
 
@@ -30,7 +30,7 @@ export class BookComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private bookService: BookService,
+    private bookService: BookReaderService,
     private sanitizer: DomSanitizer,
   ) { }
 

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { BookItem } from 'src/app/domain/book-item.model';
 import { BookNode } from 'src/app/domain/book-node.model';
+import { CategoryNode } from 'src/app/domain/category.model';
 
 @Component({
   selector: 'app-shelf',
@@ -110,39 +111,10 @@ export class ShelfComponent implements OnInit {
     }
   ];
 
-  bookItems: BookItem[] = [
-    {
-      id: 1,
-      hash: 'f3805eca632afd73be4e5fd6d9452784',
-      name: "Go Web编程11",
-      cover: "https://urania-static-test.oss-cn-beijing.aliyuncs.com/test/Image00077.jpg"
-    },
-    {
-      id: 2,
-      name: "Go Web编程22",
-      cover: "https://urania-static-test.oss-cn-beijing.aliyuncs.com/test/Image00077.jpg"
-    },
-    {
-      id: 3,
-      name: "Go Web编程33",
-      cover: "https://urania-static-test.oss-cn-beijing.aliyuncs.com/test/Image00077.jpg"
-    },
-    {
-      id: 4,
-      name: "Go Web编程44",
-      cover: "https://urania-static-test.oss-cn-beijing.aliyuncs.com/test/Image00077.jpg"
-    },
-    {
-      id: 5,
-      name: "Go Web编程55",
-      cover: "https://urania-static-test.oss-cn-beijing.aliyuncs.com/test/Image00077.jpg"
-    },
-    {
-      id: 6,
-      name: "Go Web编程66",
-      cover: "https://urania-static-test.oss-cn-beijing.aliyuncs.com/test/Image00077.jpg"
-    },
-  ]
+  /**
+   * 类别节点
+   */
+  @Input() cateNodes: CategoryNode[];
 
   constructor() { }
 

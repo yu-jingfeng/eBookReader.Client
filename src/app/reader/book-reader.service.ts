@@ -5,7 +5,7 @@ import { map } from "rxjs/operators";
 import { CatalogNode } from '../domain/catalog-node.model';
 
 @Injectable()
-export class BookService {
+export class BookReaderService {
 
   host = 'http://localhost:5000';
   constructor(private http: HttpClient) { }
