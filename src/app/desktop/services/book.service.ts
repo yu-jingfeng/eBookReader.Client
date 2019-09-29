@@ -31,18 +31,18 @@ export class BookService {
    * 快速上传书籍
    * @param fileInfo 文件详情
    */
-  rapidUpload(fileInfo: { hsah: string, size: number, categoryId: number }): Observable<boolean> {
+  rapidUpload(fileInfo: { hash: string, size: number, categoryId: number }): Observable<BookItem> {
     let url = `${this.host}/api/Book/RapidUpload`;
-    return this.http.post<boolean>(url, fileInfo);
+    return this.http.post<BookItem>(url, fileInfo);
   }
 
   /**
    * 上传书籍
    * @param formData 书籍文件
    */
-  upload(formData: FormData): Observable<void> {
+  upload(formData: FormData): Observable<BookItem> {
     let url = `${this.host}/api/Book/Upload`;
-    return this.http.post<void>(url, formData);
+    return this.http.post<BookItem>(url, formData);
   }
 
   /**
