@@ -8,7 +8,7 @@
         Currently I am {{panelOpenState ? 'open' : 'closed'}}
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <app-book-item *ngFor="let book of books" [book]="book"></app-book-item>
+    <app-book-item *ngFor="let book of books" [book]="book" (deleteBook)="deleteBook($event)"></app-book-item>
     <div class="book-upload" (click)="file.click()">
       <input type="file" #file accept=".epub" style="display: none" id="bookfile" (change)="upload($event.target)">
       <div class="upload-box">

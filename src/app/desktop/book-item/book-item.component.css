@@ -6,6 +6,20 @@
     position: relative;
 }
 
+.book-head {
+    display: flex;
+    width: 150px;
+    justify-content: space-between;
+    color: #9e9e9e;
+}
+
+.book-menu {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+}
+
 .book-read-time {
     font-size: 12px;
     line-height: 22px!important;
@@ -41,8 +55,12 @@
     height: 100%;
 }
 
-.book-title {
+.book-foot {
     padding-top: 20px;
+    font-size: 15px;
+}
+
+.book-title {
     width: 140px;
     margin: 0;
     line-height: 24px!important;
@@ -50,6 +68,5 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     overflow: hidden;
-    font-size: 15px!important;
     color: #333!important;
 }

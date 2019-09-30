@@ -65,10 +65,10 @@ export class BookService {
 
   /**
    * 删除书籍
-   * @param id 书籍id
+   * @param bookId 书籍id
    */
-  delete(id: number): Observable<void> {
-    let url = `${this.host}/api/Book/Delete?id=${id}`;
+  delete(bookId: number): Observable<void> {
+    let url = `${this.host}/api/Book/Delete?bookId=${bookId}`;
     return this.http.delete<void>(url);
   }
 }

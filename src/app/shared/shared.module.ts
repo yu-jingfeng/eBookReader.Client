@@ -8,12 +8,18 @@ import {
   MatExpansionModule,
   MatFormFieldModule,
   MatCardModule,
-  MatTreeModule
+  MatTreeModule,
+  MatMenuModule,
+  MatInputModule,
+  MatSnackBarModule,
+  MatDialogModule,
+  MatListModule
 } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [ConfirmDialogComponent],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -25,7 +31,12 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     MatCardModule,
     MatTreeModule,
-
+    MatMenuModule,
+    MatInputModule,
+    FormsModule,
+    MatSnackBarModule,
+    MatDialogModule,
+    MatListModule,
   ],
   exports: [
     CommonModule,
@@ -38,6 +49,15 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     MatCardModule,
     MatTreeModule,
+    MatMenuModule,
+    MatInputModule,
+    FormsModule,
+    MatSnackBarModule,
+    MatDialogModule,
+    MatListModule,
+  ],
+  entryComponents: [
+    ConfirmDialogComponent,
   ]
 })
 export class SharedModule { }

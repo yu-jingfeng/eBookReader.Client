@@ -10,6 +10,7 @@ import { BookPanelComponent } from './book-panel/book-panel.component';
 import { CategoryService } from './services/category.service';
 import { BookService } from './services/book.service';
 import { UtilService } from './services/util.service';
+import { BookInfoDialogComponent } from './book-info-dialog/book-info-dialog.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { UtilService } from './services/util.service';
     CategoryMenuComponent,
     CategoryItemComponent,
     BookItemComponent,
-    BookPanelComponent
+    BookPanelComponent,
+    BookInfoDialogComponent,
   ],
   imports: [
     DesktopRoutingModule,
@@ -29,6 +31,9 @@ import { UtilService } from './services/util.service';
     CategoryService,
     BookService,
     UtilService,
+  ],
+  entryComponents: [
+    BookInfoDialogComponent,
   ]
 })
 export class DesktopModule { }

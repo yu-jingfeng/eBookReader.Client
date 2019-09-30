@@ -1,0 +1,37 @@
+<h1 mat-dialog-title>{{data.name}}</h1>
+<div mat-dialog-content>
+  <mat-list role="list">
+    <mat-list-item role="listitem">
+      <label for="">名称：</label>
+      <span>{{data.name}}</span>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <label for="">作者：</label>
+      <span>{{data.creator}}</span>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <label for="">语言：</label>
+      <span>{{data.language}}</span>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <label for="">出版社：</label>
+      <span>{{data.publisher}}</span>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <label for="">出版日期：</label>
+      <span>{{data.publicationDate}}</span>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <label for="">ISBN：</label>
+      <span>{{data.isbn}}</span>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <label for="">ASIN：</label>
+      <span>{{data.asin}}</span>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <label for="">添加日期：</label>
+      <span>{{data.additionDate | date:"yyyy-MM-dd HH:mm:ss"}}</span>
+    </mat-list-item>
+  </mat-list>
+</div>

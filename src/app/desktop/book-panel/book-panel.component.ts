@@ -6,6 +6,8 @@ import { BookService } from '../services/book.service';
 import { UtilService } from '../services/util.service';
 import { pipe, of } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
+import { MatDialog, MatSnackBar } from '@angular/material';
+import { ConfirmDialogComponent } from 'src/app/shared/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-book-panel',
@@ -20,13 +22,17 @@ export class BookPanelComponent implements OnInit {
 
   constructor(
     private bookService: BookService,
-    private utilService: UtilService) { }
+    private utilService: UtilService,
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar, ) { }
 
   ngOnInit() {
     console.log(this.cateNode.id);
 
     this.bookService.booksUpdate$.subscribe(books => {
       this.books = books.filter(b => b.categoryId == this.cateNode.id);
+      console.log(this.books);
+
     })
   }
 
@@ -75,4 +81,24 @@ export class BookPanelComponent implements OnInit {
     fileInput.value = null;
   }
 
+  deleteBook(bookId: number) {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '250px',
+      data: { title: '删除', content: '是否确认删除书籍？' }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      if (result) {
+        this.bookService.delete(bookId).subscribe(() => {
+          let idx = this.books.findIndex(b => b.id == bookId);
+          this.books.splice(idx, 1);
+          this.snackBar.open('删除成功', '', { duration: 2000 });
+        }, err => {
+          console.log(err);
+          this.snackBar.open('删除失败', '', { duration: 2000 });
+        });
+      }
+    });
+  }
 }
