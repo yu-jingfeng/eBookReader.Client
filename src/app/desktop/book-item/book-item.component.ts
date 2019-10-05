@@ -48,16 +48,20 @@ export class BookItemComponent implements OnInit {
    * @param name 书籍名称
    */
   updateName(name: string) {
+    if (!this.editing) {
+      return;
+    }
+    this.editing = false;
     this.titleInput.nativeElement.disabled = true;
     name = name.trim();
     //console.log(this.book);
     let bookInfo = { id: this.book.id, name };
     this.bookService.updateName(bookInfo)
       .subscribe(() => {
-        this.editing = false;
+        //this.editing = false;
         this.book.name = name;
       }, err => {
-        this.editing = false;
+        //this.editing = false;
         this.snackBar.open('名称修改失败，请重试', '', { duration: 2000 });
       });
   }
