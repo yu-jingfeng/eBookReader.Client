@@ -1,5 +1,12 @@
-<button mat-button class="add-menu">
+<button mat-button class="add-menu" (click)="newCategory()">
   <mat-icon>add</mat-icon>
   <span>新建分类</span>
 </button>
+<div class="new-cate" *ngIf="newCate">
+  <mat-form-field>
+    <input id="text" matInput #cateInput (keyup.enter)="addCategory(cateInput.value)"
+      (blur)="addCategory(cateInput.value)">
+  </mat-form-field>
+</div>
+
 <app-category-item *ngFor="let node of nodes" [node]="node"></app-category-item>

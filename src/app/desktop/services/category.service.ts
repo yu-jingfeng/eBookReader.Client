@@ -22,9 +22,9 @@ export class CategoryService {
    * 添加类别
    * @param cate 类别
    */
-  add(cate: { name: string, parentId: number }): void {
+  add(cate: { name: string, parentId: number }): Observable<CategoryNode> {
     let url = `${this.host}/api/Category/Add`;
-    this.http.post(url, cate);
+    return this.http.post<CategoryNode>(url, cate);
   }
 
 
@@ -32,18 +32,18 @@ export class CategoryService {
    * 修改类别名称
    * @param cate 类别
    */
-  updateName(cate: { id: number, name: string }): void {
+  updateName(cate: { id: number, name: string }): Observable<void> {
     let url = `${this.host}/api/Category/UpdateName`;
-    this.http.post(url, cate);
+    return this.http.post<void>(url, cate);
   }
 
   /**
    * 删除类别
    * @param id 类别id
    */
-  delete(id: number): void {
+  delete(id: number): Observable<void> {
     let url = `${this.host}/api/Category/Delete?${id}`;
-    this.http.delete(url);
+    return this.http.delete<void>(url);
   }
 
 

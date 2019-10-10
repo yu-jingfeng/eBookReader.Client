@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, ViewChild } from '@angular/core';
 import { CategoryNode } from 'src/app/domain/category.model';
+import { MatMenuTrigger } from '@angular/material';
 
 @Component({
   selector: 'app-category-item',
@@ -14,6 +15,7 @@ export class CategoryItemComponent implements OnInit, OnChanges {
   @Input() isParentExpanded = true;
 
   @Input() selectedNodes: CategoryNode[];
+  @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 
   isExpanded = false;
   isSelected = false;
@@ -54,6 +56,14 @@ export class CategoryItemComponent implements OnInit, OnChanges {
   headerClicked() {
     this.isExpanded = !this.isExpanded;
     this.setClasses();
+  }
+
+  openMenu() {
+    this.trigger.openMenu();
+  }
+
+  closeMenu() {
+    this.trigger.closeMenu();
   }
 
 }

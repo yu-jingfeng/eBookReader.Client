@@ -17,19 +17,19 @@
   <mat-menu style="display: none" overlapTrigger="true" #menu="matMenu" yPosition="below">
     <div (mouseleave)="closeMenu()">
       <button mat-menu-item (click)="editName()">
-        <mat-icon>dialpad</mat-icon>
+        <mat-icon>edit</mat-icon>
         <span>修改名称</span>
       </button>
       <button mat-menu-item>
-        <mat-icon>voicemail</mat-icon>
+        <mat-icon>edit</mat-icon>
         <span>修改类别</span>
       </button>
       <button mat-menu-item (click)="openInfoDialog()">
-        <mat-icon>notifications_off</mat-icon>
+        <mat-icon>info</mat-icon>
         <span>书籍信息</span>
       </button>
       <button mat-menu-item (click)="delBook()">
-        <mat-icon>notifications_off</mat-icon>
+        <mat-icon>delete</mat-icon>
         <span>删除书籍</span>
       </button>
     </div>
