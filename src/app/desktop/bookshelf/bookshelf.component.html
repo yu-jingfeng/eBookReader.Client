@@ -10,9 +10,9 @@
 
 <mat-sidenav-container>
   <mat-sidenav #sidenav mode="side" [opened]="true">
-    <app-category-menu [nodes]="categoryNodes"></app-category-menu>
+    <app-category-menu [items]="categoryItems"></app-category-menu>
   </mat-sidenav>
   <mat-sidenav-content class="innerbox innerbox-dispale">
-    <app-shelf [cateNodes]="categoryNodes"></app-shelf>
+    <app-shelf [cateItems]="categoryItems"></app-shelf>
   </mat-sidenav-content>
 </mat-sidenav-container>

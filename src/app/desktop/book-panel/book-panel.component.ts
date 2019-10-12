@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BookNode } from 'src/app/domain/book-node.model';
-import { CategoryNode } from 'src/app/domain/category.model';
+import { CategoryItem } from 'src/app/domain/category-item.model';
 import { BookItem } from 'src/app/domain/book-item.model';
 import { BookService } from '../services/book.service';
 import { UtilService } from '../services/util.service';
@@ -16,7 +16,7 @@ import { ConfirmDialogComponent } from 'src/app/shared/confirm-dialog/confirm-di
 })
 export class BookPanelComponent implements OnInit {
 
-  @Input() cateNode: CategoryNode;
+  @Input() cateItem: CategoryItem;
 
   books: BookItem[] = [];
 
@@ -27,10 +27,10 @@ export class BookPanelComponent implements OnInit {
     private snackBar: MatSnackBar, ) { }
 
   ngOnInit() {
-    console.log(this.cateNode.id);
+    console.log(this.cateItem.id);
 
     this.bookService.booksUpdate$.subscribe(books => {
-      this.books = books.filter(b => b.categoryId == this.cateNode.id);
+      this.books = books.filter(b => b.categoryId == this.cateItem.id);
       console.log(this.books);
 
     })
@@ -53,7 +53,7 @@ export class BookPanelComponent implements OnInit {
           var fileInfo = {
             hash,
             size: file.size,
-            categoryId: this.cateNode.id
+            categoryId: this.cateItem.id
           }
           return this.bookService.rapidUpload(fileInfo);
         }),
@@ -64,7 +64,7 @@ export class BookPanelComponent implements OnInit {
           }
           var formData = new FormData();
           formData.append('BookFile', file);
-          formData.append('CategoryId', this.cateNode.id.toString());
+          formData.append('CategoryId', this.cateItem.id.toString());
 
           return this.bookService.upload(formData);
         })

@@ -13,8 +13,10 @@ import {
   MatInputModule,
   MatSnackBarModule,
   MatDialogModule,
-  MatListModule
+  MatListModule,
+  MatRippleModule
 } from '@angular/material';
+import { DragDropModule } from "@angular/cdk/drag-drop";
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
@@ -37,6 +39,8 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     MatSnackBarModule,
     MatDialogModule,
     MatListModule,
+    MatRippleModule,
+    DragDropModule,
   ],
   exports: [
     CommonModule,
@@ -55,6 +59,8 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     MatSnackBarModule,
     MatDialogModule,
     MatListModule,
+    MatRippleModule,
+    DragDropModule
   ],
   entryComponents: [
     ConfirmDialogComponent,

@@ -1,29 +1,26 @@
-<mat-accordion multi="true">
-  <mat-expansion-panel expanded="true">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        {{cateNode.name}}
-      </mat-panel-title>
-      <mat-panel-description>
-        Currently I am {{panelOpenState ? 'open' : 'closed'}}
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <app-book-panel *ngFor="let cateNode of cateNode.children" [cateNode]="cateNode"></app-book-panel>
-    <app-book-item *ngFor="let book of books" [book]="book" (deleteBook)="deleteBook($event)"></app-book-item>
-    <div class="book-upload" (click)="file.click()">
-      <input type="file" #file accept=".epub" style="display: none" id="bookfile" (change)="upload($event.target)">
-      <div class="upload-box">
-        <i class="upload-icon">
-          <svg viewBox="64 64 896 896" fill="currentColor" width="1em" height="1em" data-icon="plus" aria-hidden="true">
-            <defs>
-              <style></style>
-            </defs>
-            <path d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"></path>
-            <path d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"></path>
-          </svg>
-        </i>
-        <div>上传书籍</div>
-      </div>
+<mat-expansion-panel expanded="true">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{cateItem.name}}
+    </mat-panel-title>
+    <mat-panel-description>
+      Currently I am {{panelOpenState ? 'open' : 'closed'}}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <app-book-item *ngFor="let book of books" [book]="book" (deleteBook)="deleteBook($event)"></app-book-item>
+  <div class="book-upload" (click)="file.click()">
+    <input type="file" #file accept=".epub" style="display: none" id="bookfile" (change)="upload($event.target)">
+    <div class="upload-box">
+      <i class="upload-icon">
+        <svg viewBox="64 64 896 896" fill="currentColor" width="1em" height="1em" data-icon="plus" aria-hidden="true">
+          <defs>
+            <style></style>
+          </defs>
+          <path d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"></path>
+          <path d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"></path>
+        </svg>
+      </i>
+      <div>上传书籍</div>
     </div>
-  </mat-expansion-panel>
-</mat-accordion>
+  </div>
+</mat-expansion-panel>

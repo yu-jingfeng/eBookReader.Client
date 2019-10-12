@@ -1,39 +1,26 @@
-<!-- 没有子分类 -->
-<div *ngIf="!node.children">
-  <a mat-button [ngClass]="classes" class="vertical-menu-item heading">
-    <span>{{node.name}}</span>
-    <mat-icon class="more-icon">more_vert</mat-icon>
-  </a>
+<ng-content *ngIf="!editing"></ng-content>
+<div class="cate-content">
+  <span *ngIf="!editing">{{item.name}}</span>
+  <mat-form-field *ngIf="editing">
+    <input matInput #cateInput value="{{item.name}}" (keyup.enter)="updateCategory(cateInput.value)"
+      (blur)="updateCategory(cateInput.value)" (click)="$event.stopPropagation()">
+  </mat-form-field>
+  <mat-icon *ngIf="!editing" title="更多操作" class="more-icon" (click)="$event.stopPropagation()"
+    [matMenuTriggerFor]="actMenu">
+    more_vert
+  </mat-icon>
 </div>
 
-<!-- 包含子分类 -->
-<div *ngIf="node.children">
-  <a mat-button [ngClass]="classes" (click)="headerClicked()" class="vertical-menu-item heading">
-    <mat-icon class="rotating-icon">keyboard_arrow_right</mat-icon>
-    <span>{{node.name}}</span>
-    <mat-icon class="more-icon" (mouseenter)="openMenu()" [matMenuTriggerFor]="actMenu">more_vert</mat-icon>
-    <mat-menu #actMenu="matMenu" overlapTrigger="true">
-      <div (mouseleave)="closeMenu()">
-        <button mat-menu-item (click)="addCategory()">
-          <mat-icon>add</mat-icon>
-          <span>添加子类别</span>
-        </button>
-        <button mat-menu-item (click)="editCategoryName()">
-          <mat-icon>edit</mat-icon>
-          <span>修改类别名称</span>
-        </button>
-        <button mat-menu-item (click)="delCategory()">
-          <mat-icon>delete</mat-icon>
-          <span>删除类别</span>
-        </button>
-      </div>
-    </mat-menu>
-  </a>
 
-
-  <div class="heading-children" [ngClass]="classes">
-    <app-category-item *ngFor="let node of nodeChildren" [level]="level + 1" [isParentExpanded]="isExpanded"
-      [node]="node" [selectedNodes]="selectedNodes">
-    </app-category-item>
+<mat-menu #actMenu="matMenu" overlapTrigger="true">
+  <div (mouseleave)="closeMenu()">
+    <button mat-menu-item (click)="editCategoryName()">
+      <mat-icon>edit</mat-icon>
+      <span>修改名称</span>
+    </button>
+    <button mat-menu-item (click)="delCategory()">
+      <mat-icon>delete</mat-icon>
+      <span>解散分类</span>
+    </button>
   </div>
-</div>
+</mat-menu>

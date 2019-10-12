@@ -1,62 +1,30 @@
-import { Component, OnInit, Input, OnChanges, ViewChild } from '@angular/core';
-import { CategoryNode } from 'src/app/domain/category.model';
-import { MatMenuTrigger } from '@angular/material';
+import { Component, OnInit, Input, OnChanges, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
+import { CategoryItem } from 'src/app/domain/category-item.model';
+import { MatMenuTrigger, MatSnackBar } from '@angular/material';
+import { CategoryService } from '../services/category.service';
 
 @Component({
   selector: 'app-category-item',
   templateUrl: './category-item.component.html',
   styleUrls: ['./category-item.component.css']
 })
-export class CategoryItemComponent implements OnInit, OnChanges {
+export class CategoryItemComponent implements OnInit {
 
-  @Input() level = 1;
-  @Input() node: CategoryNode;
+  @Input() item: CategoryItem;
+  @Output() deleteCate = new EventEmitter<number>();
 
-  @Input() isParentExpanded = true;
-
-  @Input() selectedNodes: CategoryNode[];
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
+  @ViewChild('cateInput') cateInput: ElementRef;
 
-  isExpanded = false;
-  isSelected = false;
-  classes: { [index: string]: boolean };
+  creating = false;
+  editing = false;
 
-  nodeChildren: CategoryNode[];
-
-  constructor() { }
+  constructor(
+    private categoryService: CategoryService,
+    private snackBar: MatSnackBar, ) { }
   ngOnInit() {
   }
-  ngOnChanges(changes: import("@angular/core").SimpleChanges): void {
-    this.nodeChildren = this.node && this.node.children ?
-      this.node.children : [];
 
-    if (this.selectedNodes) {
-      const ix = this.selectedNodes.indexOf(this.node);
-      this.isSelected = ix !== -1; // this node is the selected node or its ancestor
-      this.isExpanded = this.isParentExpanded &&
-        (this.isSelected || // expand if selected or ...
-          // preserve expanded state when display is wide; collapse in mobile.
-          (this.isExpanded));
-    } else {
-      this.isSelected = false;
-    }
-
-    this.setClasses();
-  }
-
-  setClasses() {
-    this.classes = {
-      ['level-' + this.level]: true,
-      collapsed: !this.isExpanded,
-      expanded: this.isExpanded,
-      selected: this.isSelected
-    };
-  }
-
-  headerClicked() {
-    this.isExpanded = !this.isExpanded;
-    this.setClasses();
-  }
 
   openMenu() {
     this.trigger.openMenu();
@@ -64,6 +32,45 @@ export class CategoryItemComponent implements OnInit, OnChanges {
 
   closeMenu() {
     this.trigger.closeMenu();
+  }
+
+
+  /**
+   * 编辑类别名称
+   */
+  editCategoryName() {
+    this.editing = true;
+    setTimeout(() => {
+      this.cateInput.nativeElement.focus()
+      //console.log();
+    }, 0);
+  }
+
+  /**
+   * 更新类别名称
+   */
+  updateCategory(name: string) {
+    if (!this.editing) {
+      return;
+    }
+    this.editing = false;
+    name = name.trim();
+    if (!name || name == this.item.name) {
+      return;
+    }
+
+    this.categoryService.updateName({ id: this.item.id, name: name })
+      .subscribe(() => {
+        this.item.name = name;
+      }, err => {
+        //this.editing = false;
+        this.snackBar.open('名称修改失败，请重试', '', { duration: 2000 });
+      })
+  }
+
+  delCategory() {
+    console.log(this.item.id);
+    this.deleteCate.emit(this.item.id);
   }
 
 }

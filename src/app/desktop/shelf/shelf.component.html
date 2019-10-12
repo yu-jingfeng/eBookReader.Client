@@ -1,5 +1,5 @@
-<app-book-panel *ngFor="let cateNode of cateNodes" [cateNode]="cateNode"></app-book-panel>
+<!-- <app-book-panel *ngFor="let cateNode of cateNodes" [cateNode]="cateNode"></app-book-panel> -->
 
-<p>beginbeginbeginbeginbeginbeginbeginbegin</p>
-
-<p>endendendendendendendendendendendend</p>
+<mat-accordion multi="true">
+    <app-book-panel *ngFor="let cateItem of cateItems" [cateItem]="cateItem"></app-book-panel>
+</mat-accordion>

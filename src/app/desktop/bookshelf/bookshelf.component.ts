@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryNode } from 'src/app/domain/category.model';
+import { CategoryItem } from 'src/app/domain/category-item.model';
 import { CategoryService } from '../services/category.service';
 import { BookService } from '../services/book.service';
 
@@ -10,7 +10,7 @@ import { BookService } from '../services/book.service';
 })
 export class BookshelfComponent implements OnInit {
 
-  categoryNodes: CategoryNode[];
+  categoryItems: CategoryItem[];
 
   constructor(
     private categoryService: CategoryService,
@@ -18,8 +18,10 @@ export class BookshelfComponent implements OnInit {
 
   ngOnInit() {
     this.categoryService.getCategorys()
-      .subscribe(cate => {
-        this.categoryNodes = cate;
+      .subscribe(cateItems => {
+        this.categoryItems = cateItems.sort((a, b) => a.order - b.order);
+        console.log(this.categoryItems);
+
       });
 
     this.bookService.updateSource();

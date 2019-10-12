@@ -1,12 +1,17 @@
-<button mat-button class="add-menu" (click)="newCategory()">
+<button mat-raised-button class="add-menu" (click)="newCategory()">
   <mat-icon>add</mat-icon>
   <span>新建分类</span>
 </button>
-<div class="new-cate" *ngIf="newCate">
+<div class="new-cate" *ngIf="creating">
   <mat-form-field>
     <input id="text" matInput #cateInput (keyup.enter)="addCategory(cateInput.value)"
       (blur)="addCategory(cateInput.value)">
   </mat-form-field>
 </div>
-
-<app-category-item *ngFor="let node of nodes" [node]="node"></app-category-item>
+<div class="cate-list" cdkDropList (cdkDropListDropped)="drop($event)">
+  <app-category-item title="{{item.name}}" class="cate-item" cdkDragBoundary=".cate-list" cdkDragLockAxis="y" cdkDrag
+    *ngFor="let item of items" [item]="item" (deleteCate)="deleteCate($event)">
+    <mat-icon class="move-icon" title="拖动排序" cdkDragHandle>menu</mat-icon>
+    <div class="cate-item-placeholder" *cdkDragPlaceholder></div>
+  </app-category-item>
+</div>

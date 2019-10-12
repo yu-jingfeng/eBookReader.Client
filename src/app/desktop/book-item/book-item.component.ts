@@ -52,8 +52,10 @@ export class BookItemComponent implements OnInit {
       return;
     }
     this.editing = false;
-    this.titleInput.nativeElement.disabled = true;
     name = name.trim();
+    if (!name) {
+      return;
+    }
     //console.log(this.book);
     let bookInfo = { id: this.book.id, name };
     this.bookService.updateName(bookInfo)
