@@ -13,8 +13,7 @@ export class BookshelfComponent implements OnInit {
   categoryItems: CategoryItem[];
 
   constructor(
-    private categoryService: CategoryService,
-    private bookService: BookService) { }
+    private categoryService: CategoryService) { }
 
   ngOnInit() {
     this.categoryService.getCategorys()
@@ -23,8 +22,6 @@ export class BookshelfComponent implements OnInit {
         console.log(this.categoryItems);
 
       });
-
-    this.bookService.updateSource();
   }
 
 }

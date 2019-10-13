@@ -18,7 +18,7 @@ export class BookPanelComponent implements OnInit {
 
   @Input() cateItem: CategoryItem;
 
-  books: BookItem[] = [];
+  @Input() books: BookItem[] = [];
 
   constructor(
     private bookService: BookService,
@@ -29,11 +29,11 @@ export class BookPanelComponent implements OnInit {
   ngOnInit() {
     console.log(this.cateItem.id);
 
-    this.bookService.booksUpdate$.subscribe(books => {
-      this.books = books.filter(b => b.categoryId == this.cateItem.id);
-      console.log(this.books);
+    // this.bookService.booksUpdate$.subscribe(books => {
+    //   this.books = books.filter(b => b.categoryId == this.cateItem.id);
+    //   console.log(this.books);
 
-    })
+    // })
   }
 
   upload(fileInput: HTMLInputElement) {

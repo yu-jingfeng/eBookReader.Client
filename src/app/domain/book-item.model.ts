@@ -1,9 +1,9 @@
 export interface BookItem {
     id: number,
-    hash?: string,
+    hash: string,
     name: string,
-    categoryId?: number,
-    size?: number,
+    categoryId: number,
+    size: number,
     additionDate?: string,
     creator?: string
     cover?: string,
