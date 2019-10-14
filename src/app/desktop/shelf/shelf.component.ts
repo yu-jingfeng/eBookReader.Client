@@ -17,7 +17,7 @@ export class ShelfComponent implements OnInit, OnChanges {
    */
   @Input() cateItems: CategoryItem[];
 
-  cateMap: { [key: number]: BookItem[] } = {};
+  @Input() cateMap: { [key: number]: BookItem[] };
 
 
   constructor(private bookService: BookService) { }
@@ -35,6 +35,7 @@ export class ShelfComponent implements OnInit, OnChanges {
     this.cateItems.map(cate => {
       this.cateMap[cate.id] = []
     })
+    this.cateMap[0] = [];
     this.bookService.getBooks()
       .subscribe(books => {
         books.map(book => {

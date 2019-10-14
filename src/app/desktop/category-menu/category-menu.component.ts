@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 import { CategoryItem } from 'src/app/domain/category-item.model';
 import { CategoryService } from '../services/category.service';
 import { MatSnackBar, MatDialog } from '@angular/material';
@@ -13,6 +13,8 @@ import { ConfirmDialogComponent } from 'src/app/shared/confirm-dialog/confirm-di
 export class CategoryMenuComponent implements OnInit {
 
   @Input() items: CategoryItem[];
+  @Output() addCate = new EventEmitter<string>();
+  @Output() delCate = new EventEmitter<number>();
   @ViewChild('cateInput') cateInput: ElementRef;
 
   creating = false;
@@ -72,14 +74,16 @@ export class CategoryMenuComponent implements OnInit {
     }
     console.log(cate);
 
-    this.categoryService.add(cate)
-      .subscribe(cateItem => {
-        this.items.push(cateItem);
-        console.log('添加成功');
+    this.addCate.emit(cate);
 
-      }, err => {
-        this.snackBar.open('新建类别失败，请重试', '', { duration: 2000 });
-      });
+    // this.categoryService.add(cate)
+    //   .subscribe(cateItem => {
+    //     this.items.push(cateItem);
+    //     console.log('添加成功');
+
+    //   }, err => {
+    //     this.snackBar.open('新建类别失败，请重试', '', { duration: 2000 });
+    //   });
 
   }
 
@@ -99,14 +103,15 @@ export class CategoryMenuComponent implements OnInit {
         return;
       }
 
-      this.categoryService.delete(id)
-        .subscribe(() => {
-          console.log('解散成功');
-          let idx = this.items.findIndex(c => c.id == id);
-          this.items.splice(idx, 1);
-        }, err => {
-          this.snackBar.open('解散失败，请重试', '', { duration: 2000 });
-        });
+      this.delCate.emit(id);
+      // this.categoryService.delete(id)
+      //   .subscribe(() => {
+      //     console.log('解散成功');
+      //     let idx = this.items.findIndex(c => c.id == id);
+      //     this.items.splice(idx, 1);
+      //   }, err => {
+      //     this.snackBar.open('解散失败，请重试', '', { duration: 2000 });
+      //   });
     });
 
 

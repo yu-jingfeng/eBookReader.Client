@@ -10,9 +10,10 @@
 
 <mat-sidenav-container>
   <mat-sidenav #sidenav mode="side" [opened]="true">
-    <app-category-menu [items]="categoryItems"></app-category-menu>
+    <app-category-menu [items]="categoryItems" (addCate)="addCate($event)" (delCate)="delCate($event)">
+    </app-category-menu>
   </mat-sidenav>
   <mat-sidenav-content class="innerbox innerbox-dispale">
-    <app-shelf [cateItems]="categoryItems"></app-shelf>
+    <app-shelf [cateItems]="categoryItems" [cateMap]="cateMap"></app-shelf>
   </mat-sidenav-content>
 </mat-sidenav-container>
